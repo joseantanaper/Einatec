@@ -15,7 +15,7 @@ npm install --save-dev @types/jest
 npx ts-jest config:init
 ```
 
-Path aliases
+Path aliases working on ts-node
 
 ```sh
 npm install --save-dev tsconfig-paths
