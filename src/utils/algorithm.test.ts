@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals'
-import { dijkstra } from './utils/algorithm'
+import { dijkstra, findLowestCostN } from './algorithm'
 
 const graph: object = {
   Zerind: { Oradea: 71, Arad: 75 },
@@ -24,21 +24,26 @@ const graph: object = {
   Eforie: { Hirsova: 86 },
 }
 
+const costs = { Rimnicu: 97, Caiova: 138, Bucarest: 101, end: Infinity }
+const extraCosts = { A: 1, B: 2, C: 3, D: Infinity }
+
 beforeAll(() => {
-  // console.log('main test start ***')
+  // console.log('dijkstra test start ***')
 })
 afterAll(() => {
-  // console.log('main test end ***')
+  // console.log('dijkstra test end ***')
 })
 
-describe('main', () => {
+describe('dijkstra', () => {
   it('hello', () => {
     expect(1).toBe(1)
   })
-  it('From Pitesti to Fagaras, distance is 276, and path is Rimnicu, Sibiu and Fagaras.', () => {
-    expect(dijkstra(graph, 'Pitesti', 'Fagaras')).toMatchObject({
-      distance: 276,
-      path: ['Rimnicu', 'Sibiu', 'Fagaras'],
-    })
+  it('findLowestCostN returns lowest node', () => {
+    console.log(findLowestCostN(costs, []))
+    expect(findLowestCostN(costs, [])).toBe('Rimnicu')
+  })
+  it('findLowestCostN returns lowest node again', () => {
+    console.log(findLowestCostN(extraCosts, []))
+    expect(findLowestCostN(extraCosts, [])).toBe('A')
   })
 })

@@ -1,4 +1,4 @@
-import { dijkstra } from './utils/algorhitm'
+import { dijkstra } from '@utils/algorithm'
 
 const graph: object = {
   Zerind: { Oradea: 71, Arad: 75 },
